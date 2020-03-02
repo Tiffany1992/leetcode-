@@ -1,0 +1,17 @@
+题目：
+给定一个字符串，验证它是否是回文串，只考虑字母和数字字符，可以忽略字母的大小写。
+
+import re
+class Solution(object):
+    def isPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        s1 = re.findall(r'\w',s.lower() )
+        s2 = re.findall(r'\w',s.lower()[::-1] )
+        return s1 == s2
+        
+
+输入："A man, a plan, a canal: Panama"
+输出：true
