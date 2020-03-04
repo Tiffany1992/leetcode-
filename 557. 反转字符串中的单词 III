@@ -6,3 +6,5 @@
 class Solution:
     def reverseWords(self, s: str) -> str:
         return ' '.join(s[::-1].split()[::-1])
+
+其他答案：return " ".join([(x[::-1]) for x in s.split()])
