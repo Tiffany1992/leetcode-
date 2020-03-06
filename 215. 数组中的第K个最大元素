@@ -1,0 +1,17 @@
+在未排序的数组中找到第 k 个最大的元素。请注意，你需要找的是数组排序后的第 k 个最大的元素，而不是第 k 个不同的元素。
+输入: [3,2,1,5,6,4] 和 k = 2
+输出: 5
+
+class Solution:
+    def findKthLargest(self, nums: List[int], k: int) -> int:
+        nums.sort()   # 不改变原nums，sorted改变原nums
+        return nums[-k]  
+
+算法的时间复杂度为 O(NlogN)，空间复杂度为 O(1)，这个时间复杂度并不令人满意，让我们试着用额外空间来优化时间复杂度。
+https://leetcode-cn.com/problems/kth-largest-element-in-an-array/solution/shu-zu-zhong-de-di-kge-zui-da-yuan-su-by-leetcode/
+
+优化：实现见上述网址的动图，k个元素一个一个的加入，比如目标是第二大，每进来一个元素就比对一下第二大的，小的剔除。
+        return heapq.nlargest(k, nums)[-1]
+        时间复杂度 : O(Nlogk)。
+        空间复杂度 : O(k)，用于存储堆元素。
+
